@@ -30,14 +30,40 @@ public class EmpresaManager
         }
     }
 
+    public List<Mecanico> MecanicosList
+    {
+        get
+        {
+            return mecanicosList;
+        }
+
+        set
+        {
+            mecanicosList = value;
+        }
+    }
+
+    public List<Embarcacion> Embarcacionlist
+    {
+        get
+        {
+            return embarcacionlist;
+        }
+
+        set
+        {
+            embarcacionlist = value;
+        }
+    }
+
     //to do: implementar listas y funciones de add para otros objetos
     public void AddMecanico(Mecanico mecanico)
     {
-        mecanicosList.Add(mecanico);
+        MecanicosList.Add(mecanico);
     }
     public void AddEmbarcacion(Embarcacion emb)
     {
-        embarcacionlist.Add(emb);
+        Embarcacionlist.Add(emb);
     }
 
 
@@ -46,7 +72,7 @@ public class EmpresaManager
 
     public bool NumeroDeRegistroDuplicado(int num) // Pide un numero entero
     {
-        foreach (Mecanico mec in mecanicosList)//recorro la lista de mecanicos
+        foreach (Mecanico mec in MecanicosList)//recorro la lista de mecanicos
         {
             if (mec.NumeroRegistro == num)//Si el numero de registro de CADA instancia de MECANICOS en la LISTA aparece aunque sea 1 vez en el bucle, retornamos TRUE y SI existe un duplicado.
                 return true;

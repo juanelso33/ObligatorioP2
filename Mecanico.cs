@@ -38,10 +38,6 @@ namespace Obligatorio_P2
         }
 
 
-
-
-
-
         public static string ObtenerNombre()
         {
             string str = "";
@@ -67,8 +63,10 @@ namespace Obligatorio_P2
                 if (Int32.TryParse(str, out j))
                     numGuardado = true;
                 else
+                {
                     numGuardado = false;
-
+                    Console.WriteLine("ERROR: Debe ser un numero");
+                }
                 telefono = j;
             }
 
@@ -88,14 +86,16 @@ namespace Obligatorio_P2
                 if (Int32.TryParse(str, out j))
                     numGuardado = true;
                 else
+                {
                     numGuardado = false;
-
+                    Console.WriteLine("ERROR: Debe ser un numero");
+                }
                 numeroRegistro = j;
 
                 if (EmpresaManager.Inst.NumeroDeRegistroDuplicado(numeroRegistro))
                 {
                     numGuardado = false;
-                    Console.WriteLine("El numero de registro ya existe, ingrese otro");
+                    Console.WriteLine("ERROR: El numero de registro ya existe, ingrese otro");
                 }
 
             }
@@ -116,8 +116,10 @@ namespace Obligatorio_P2
                 if (Int32.TryParse(str, out j))
                     numGuardado = true;
                 else
+                {
                     numGuardado = false;
-
+                    Console.WriteLine("ERROR: El valor debe ser un numero");
+                }
                 valor = j;
 
             }

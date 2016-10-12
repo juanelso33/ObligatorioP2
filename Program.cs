@@ -11,35 +11,40 @@ namespace Obligatorio_P2
         static void Main(string[] args)
         {
             //Llamamos al MENU
-            Menu();
+            Principal();
 
 
             
         }
-        static void Menu()
+        static string Menu()
         {
             Console.Clear(); //limpia consola
             Console.WriteLine("Menu Principal");
             Console.WriteLine("---------------");
             Console.WriteLine("1-Registro de mecanicos");
+            Console.WriteLine("2-Registro de embarcaciones");
             Console.WriteLine("S-Salir");
             Console.WriteLine("");
             Console.WriteLine("Elija una opcion");
-
-
-            string opcion = Console.ReadLine();
-
-            if (opcion == "1")
-            {
-                RegistroDeMecanico();
-            }
-            if (opcion.ToLower() == "s")
-            {
-                Console.WriteLine("Cerrando app");
-            }
-
-
+            return Console.ReadLine();
+           
         }
+
+        static void Principal()
+        {
+            string opcion = Menu();
+
+            while (opcion.ToUpper().Trim() != "S")
+            {
+                if (opcion == "1")
+                {
+                    RegistroDeMecanico();
+                }
+                opcion = Menu();
+            }    
+        }
+
+
         static void RegistroDeMecanico()
         {
             Console.Clear();
@@ -70,12 +75,14 @@ namespace Obligatorio_P2
 
 
         }
-      
+        static void RegistroDeEmbarcacion()
+        {
+            
 
 
-        
 
 
+        }
 
 
 
