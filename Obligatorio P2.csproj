@@ -45,9 +45,13 @@
   <ItemGroup>
     <Compile Include="Direccion.cs" />
     <Compile Include="Embarcacion.cs" />
+    <Compile Include="Materiales.cs" />
+    <Compile Include="MaterialesImportados.cs" />
+    <Compile Include="MaterialesNacionales.cs" />
     <Compile Include="Mecanico.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reparacion.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
