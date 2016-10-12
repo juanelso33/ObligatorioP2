@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Obligatorio_P2
-{
+
     public class Direccion
     {
         #region propiedades y atributos
         private string calle;
-        private byte numeroDePuerta;
+        private int numeroDePuerta;
         private string ciudadDeResidencia;
 
         public string Calle
@@ -26,7 +25,7 @@ namespace Obligatorio_P2
             }
         }
 
-        public byte NumeroDePuerta
+        public int NumeroDePuerta
         {
             get
             {
@@ -51,6 +50,54 @@ namespace Obligatorio_P2
                 ciudadDeResidencia = value;
             }
         }
-        #endregion
+    #endregion
+
+
+
+    public  void AsignarDatos()
+    {
+        string aCalle = "";
+        int aNumPuerta=0;
+        string aCiudad="";
+
+        while (aCalle.Length < 1)
+        {
+            Console.WriteLine("Ingrese nombre de calle : ");
+            aCalle = Console.ReadLine();
+
+        }
+        while (aCiudad.Length < 1)
+        {
+            Console.WriteLine("Ingrese nombre de ciudad: ");
+            aCiudad = Console.ReadLine();
+
+        }
+        bool numGuardado = false;
+
+        while (!numGuardado)
+        {
+            int j;
+            Console.WriteLine("Ingrese numero de puerta : ");
+
+            string str = Console.ReadLine();
+            if (Int32.TryParse(str, out j))
+                numGuardado = true;
+            else
+                numGuardado = false;
+
+            aNumPuerta = j;
+
+        }
+
+        //Los atributos de la misma clase, se setean aqui.
+
+        Calle = aCalle;
+        NumeroDePuerta = aNumPuerta;
+        CiudadDeResidencia = aCiudad;
+
+
     }
 }
+
+
+
