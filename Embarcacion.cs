@@ -67,6 +67,44 @@ namespace Obligatorio_P2
             }
         }
         #endregion
-    
+
+        public Embarcacion(int aCodigo,string aNombre,DateTime aFechaConstruccion,string aTipoDeMotor)
+        {
+            this.Codigo = aCodigo;
+            this.FechaConstruccion = aFechaConstruccion;
+            this.Nombre = aNombre;
+            this.TipoDeMotor = aTipoDeMotor;
+        }
+
+        public static int ObtenerCodigo()
+        {
+            int codigo = 0;            
+            codigo=EmpresaManager.Inst.Embarcacionlist.Count;
+            codigo++;
+            return codigo;
+        }
+
+        public static string ObtenerNombre()
+        {
+            string str = "";
+            while (str.Length < 1)
+            {
+                Console.WriteLine("Ingrese nombre: ");
+                str = Console.ReadLine();
+            }
+            return str;
+        }
+        public static string ObtenerTipoDeMotor()
+        {
+            string str = "";
+            while (str.Length < 1)
+            {
+                Console.WriteLine("Ingrese tipo de motor: ");
+                str = Console.ReadLine();
+
+            }
+            return str;
+        }
+
     }
 }
