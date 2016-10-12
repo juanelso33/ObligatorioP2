@@ -10,147 +10,143 @@ namespace Obligatorio_P2
     {
         #region propiedades y atributos
         private string nombre;
-        private string telefono;
+        private int telefono;
         private Direccion direccionMecanico;
         private int numeroRegistro;  //Codigo unico
         private int valorJornal;
         private bool capacitacionExtra;
-        public string Nombre
-        {
-            get
-            {
-                return nombre;
-            }
-            set
-            {
-                nombre = value;
-            }
-        }
 
-        public string Telefono
-        {
-            get
-            {
-                return telefono;
-            }
-
-            set
-            {
-                telefono = value;
-            }
-        }
-
-        public int NumeroRegistro
-        {
-            get
-            {
-                return numeroRegistro;
-            }
-
-            set
-            {
-                numeroRegistro = value;
-            }
-        }
-
-        public int ValorJornal
-        {
-            get
-            {
-                return valorJornal;
-            }
-
-            set
-            {
-                valorJornal = value;
-            }
-        }
-
-        public bool CapacitacionExtra
-        {
-            get
-            {
-                return capacitacionExtra;
-            }
-
-            set
-            {
-                capacitacionExtra = value;
-            }
-        }
-
-        internal Direccion DireccionMecanico
-        {
-            get
-            {
-                return direccionMecanico;
-            }
-
-            set
-            {
-                direccionMecanico = value;
-            }
-        }
+        public string Nombre { get { return nombre; } set { nombre = value; } }
+        public int Telefono { get { return telefono; } set { telefono = value; } }
+        public int NumeroRegistro { get { return numeroRegistro; } set { numeroRegistro = value; } }
+        public int ValorJornal { get { return valorJornal; } set { valorJornal = value; } }
+        public bool CapacitacionExtra { get { return capacitacionExtra; } set { capacitacionExtra = value; } }
+        internal Direccion DireccionMecanico { get { return direccionMecanico; } set { direccionMecanico = value; } }
 
 
         #endregion
 
-        List<Mecanico> listaMecanicos = new List<Mecanico>();
-
-        public Mecanico altaDeMecanicos(string unNombre, string unTelefono, Direccion unaDireccion, int unNumeroRegistro, int unValorJornal, bool unaCapacitacionExtra)//da de alta un nuevo mecanico
+        public Mecanico(string aNombre, int aTelefono, int aNumeroDeRegistro, int aValorPorHora, bool aCapacitacionExtra, Direccion aDir)
         {
-            Mecanico nuevoMecanico = new Mecanico();
-            nuevoMecanico.Nombre = unNombre;
-            nuevoMecanico.Telefono = unTelefono;            
-            nuevoMecanico.DireccionMecanico = unaDireccion;
+            Nombre = aNombre;
+            Telefono = aTelefono;
+            NumeroRegistro = aNumeroDeRegistro;
+            ValorJornal = aValorPorHora;
+            CapacitacionExtra = aCapacitacionExtra;
+            DireccionMecanico = aDir;
 
-
-            nuevoMecanico.NumeroRegistro = unNumeroRegistro;
-            nuevoMecanico.ValorJornal = ValorJornal;
-            nuevoMecanico.CapacitacionExtra = unaCapacitacionExtra;
-            return nuevoMecanico;
         }
 
-        public bool validarDatosMecanico(string nombre, string telefono, int numeroRegistro, int valor)
+
+
+
+
+
+        public static string ObtenerNombre()
         {
-            int n;
-            bool todoOk = true;
-            if (nombre.Length <1)
+            string str = "";
+            while (str.Length < 1)
             {
-                todoOk = false;
-                Console.WriteLine("El nombre no puede estar vacio");
+                Console.WriteLine("Ingrese nombre: ");
+                str = Console.ReadLine();
+
             }
-            if (telefono.Length < 1)
-            {
-                todoOk = false;
-                Console.WriteLine("El telefono no puede estar vacio");
-            }else if (telefono.Length < 6 && AreThereOnlyNumbersInString(telefono))
-            {
 
-            } 
-
-
-            return todoOk;
+            return str;
         }
+        public static int ObtenerTelefono()
+        {
+            int telefono = 0;
+            bool numGuardado = false;
+            while (!numGuardado)
+            {
+                int j;
+                Console.WriteLine("Ingrese telefono:");
 
+                string str = Console.ReadLine();
+                if (Int32.TryParse(str, out j))
+                    numGuardado = true;
+                else
+                    numGuardado = false;
 
-        bool AreThereOnlyNumbersInString(string str)
+                telefono = j;
+            }
+
+            return telefono;
+        }
+        public static int ObtenerNumeroDeRegistro()
         {
 
-            int j;
-            if (Int32.TryParse(str, out j))
-                return true;
-            else
-                return false;
+            bool numGuardado = false;
+            int numeroRegistro = 0;
+            while (!numGuardado)
+            {
+                int j;
+                Console.WriteLine("Ingrese numero de registro : ");
+
+                string str = Console.ReadLine();
+                if (Int32.TryParse(str, out j))
+                    numGuardado = true;
+                else
+                    numGuardado = false;
+
+                numeroRegistro = j;
+
+                if (EmpresaManager.Inst.NumeroDeRegistroDuplicado(numeroRegistro))
+                {
+                    numGuardado = false;
+                    Console.WriteLine("El numero de registro ya existe, ingrese otro");
+                }
+
+            }
+
+            return numeroRegistro;
         }
 
-
-        void coso()
+        public static int ObtenerValorDeJornal()
         {
-            
+            int valor = 0;
+            bool numGuardado = false;
+            while (!numGuardado)
+            {
+                int j;
+                Console.WriteLine("Ingrese numero de valor : ");
 
+                string str = Console.ReadLine();
+                if (Int32.TryParse(str, out j))
+                    numGuardado = true;
+                else
+                    numGuardado = false;
 
+                valor = j;
+
+            }
+
+            return valor; 
         }
 
+        public static bool ObtenerCapacitacionExtra()
+        {
+            bool capacitacionGuardada = false;
+            bool capacitacionExtra = false;
+            while (capacitacionGuardada)
+            {
+                Console.WriteLine("Tiene una capacitacion extra? S/N : ");
+                string respuesta = Console.ReadLine();
+                if (respuesta.ToLower() == "s")
+                {
+                    capacitacionExtra = true;
+                    capacitacionGuardada = true;
+                }
+                if (respuesta.ToLower() == "n")
+                {
+                    capacitacionExtra = false;
+                    capacitacionGuardada = true;
+                }
+            }
+
+            return capacitacionExtra;
+
+        }
     }
 }
