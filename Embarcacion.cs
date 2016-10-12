@@ -101,10 +101,35 @@ namespace Obligatorio_P2
             {
                 Console.WriteLine("Ingrese tipo de motor: ");
                 str = Console.ReadLine();
-
+                if (str != "Integrado" && str!="Fuera de borda")
+                {
+                    str = "Otros";
+                }
             }
             return str;
         }
-
+        public static DateTime ObtenerFecha()
+        {
+            bool salir = false;
+            string str = "";
+            while(str.Length < 1 && salir==false)
+            {
+                Console.WriteLine("Ingrese fecha de construccion");
+                str=Console.ReadLine();
+                DateTime temp;
+                if (DateTime.TryParse(str, out temp))
+                {
+                    salir = true;
+                }
+                else
+                {
+                    Console.WriteLine("Error en el ingreso de la fecha");
+                    str = "";
+                    Console.ReadLine();
+                }                
+            }
+            DateTime fecha = DateTime.Parse(str);
+            return fecha;
+        }
     }
 }

@@ -12,8 +12,6 @@ namespace Obligatorio_P2
         {
             //Llamamos al MENU
             Principal();
-
-
             
         }
         static string Menu()
@@ -39,6 +37,13 @@ namespace Obligatorio_P2
                 if (opcion == "1")
                 {
                     RegistroDeMecanico();
+                    Console.WriteLine("Registro exitoso :)");
+                    Console.ReadLine();
+                }else if( opcion == "2")
+                {
+                    RegistroDeEmbarcacion();
+                    Console.WriteLine("Registro exitoso :)");
+                    Console.ReadLine();
                 }
                 opcion = Menu();
             }    
@@ -62,10 +67,11 @@ namespace Obligatorio_P2
             numeroRegistro = Mecanico.ObtenerNumeroDeRegistro();
             valorJornal = Mecanico.ObtenerValorDeJornal();
             capacitacionExtra = Mecanico.ObtenerCapacitacionExtra();
-
-
-            
+                        
             Direccion dir = new Direccion();
+            Console.WriteLine();
+            Console.WriteLine("Ingreso de direccion");
+            Console.ReadKey();
             dir.AsignarDatos();
             
             Mecanico _mecanico = new Mecanico(nombre,telefono,numeroRegistro, valorJornal, capacitacionExtra, dir);
@@ -77,11 +83,20 @@ namespace Obligatorio_P2
         }
         static void RegistroDeEmbarcacion()
         {
-            
+            Console.Clear();
 
+            int codigo = 0;
+            string nombre = "";
+            DateTime fechaConstruccion = new DateTime();
+            string tipoDeMotor = "";
 
+            nombre = Embarcacion.ObtenerNombre();
+            codigo = Embarcacion.ObtenerCodigo();
+            fechaConstruccion = Embarcacion.ObtenerFecha();
+            tipoDeMotor = Embarcacion.ObtenerTipoDeMotor();
 
-
+            Embarcacion _Embarcacion = new Embarcacion(codigo, nombre, fechaConstruccion, tipoDeMotor);
+            EmpresaManager.Inst.AddEmbarcacion(_Embarcacion);
         }
 
 
