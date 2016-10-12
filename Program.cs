@@ -21,6 +21,7 @@ namespace Obligatorio_P2
             Console.WriteLine("---------------");
             Console.WriteLine("1-Registro de mecanicos");
             Console.WriteLine("2-Registro de embarcaciones");
+            Console.WriteLine("3-Mostrar embarcaciones");
             Console.WriteLine("S-Salir");
             Console.WriteLine("");
             Console.WriteLine("Elija una opcion");
@@ -43,6 +44,13 @@ namespace Obligatorio_P2
                 {
                     RegistroDeEmbarcacion();
                     Console.WriteLine("Registro exitoso :)");
+                    Console.ReadLine();
+                }else if (opcion == "3")
+                {
+                    mostrarEmbarcacion();
+                }else
+                {
+                    Console.WriteLine("La opcion no es correcta");
                     Console.ReadLine();
                 }
                 opcion = Menu();
@@ -99,7 +107,22 @@ namespace Obligatorio_P2
             EmpresaManager.Inst.AddEmbarcacion(_Embarcacion);
         }
 
-
+        static void mostrarEmbarcacion()
+        {
+            if (EmpresaManager.Inst.Embarcacionlist.Count > 0)
+            {
+                for(int i=0;i<EmpresaManager.Inst.Embarcacionlist.Count;i++)
+                {
+                    Console.WriteLine("Embarcacion numero: "+ EmpresaManager.Inst.Embarcacionlist[i].Codigo+ "  Nombre: "+ EmpresaManager.Inst.Embarcacionlist[i].Nombre + "   Fecha de construccion: "+ EmpresaManager.Inst.Embarcacionlist[i].FechaConstruccion+ "   Tipo de motor: "+ EmpresaManager.Inst.Embarcacionlist[i].TipoDeMotor);
+                    
+                }
+            }else
+            {
+                Console.WriteLine("No hay embarcaciones creadas");
+                Console.ReadLine();
+            }
+            Console.ReadLine();
+        }
 
     }
 }

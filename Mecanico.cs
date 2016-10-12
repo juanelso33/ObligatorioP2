@@ -110,7 +110,7 @@ namespace Obligatorio_P2
             while (!numGuardado)
             {
                 int j;
-                Console.WriteLine("Ingrese numero de valor : ");
+                Console.WriteLine("Ingrese el valor en pesos de su jornal : ");
 
                 string str = Console.ReadLine();
                 if (Int32.TryParse(str, out j))
