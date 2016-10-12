@@ -129,7 +129,7 @@ namespace Obligatorio_P2
         {
             bool capacitacionGuardada = false;
             bool capacitacionExtra = false;
-            while (capacitacionGuardada)
+            while (!capacitacionGuardada)
             {
                 Console.WriteLine("Tiene una capacitacion extra? S/N : ");
                 string respuesta = Console.ReadLine();

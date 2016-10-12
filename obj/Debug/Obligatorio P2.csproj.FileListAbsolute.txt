@@ -1,5 +1,0 @@
-C:\GitORT\ObligatorioP2\bin\Debug\Obligatorio P2.exe.config
-C:\GitORT\ObligatorioP2\bin\Debug\Obligatorio P2.exe
-C:\GitORT\ObligatorioP2\bin\Debug\Obligatorio P2.pdb
-C:\GitORT\ObligatorioP2\obj\Debug\Obligatorio P2.exe
-C:\GitORT\ObligatorioP2\obj\Debug\Obligatorio P2.pdb
