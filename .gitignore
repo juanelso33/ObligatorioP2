@@ -1,0 +1,5 @@
+/bin/Debug/*.exe
+/bin/Debug/*.pdb
+/obj/Debug/*.cache
+/obj/Debug/*.exe
+/obj/Debug/*.pdb

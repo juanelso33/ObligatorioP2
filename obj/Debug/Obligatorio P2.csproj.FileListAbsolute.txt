@@ -1,10 +1,5 @@
-c:\users\trico\onedrive\documents\visual studio 2015\Projects\Obligatorio P2\Obligatorio P2\bin\Debug\Obligatorio P2.exe.config
 C:\GitORT\ObligatorioP2\bin\Debug\Obligatorio P2.exe.config
-<<<<<<< HEAD
-=======
 C:\GitORT\ObligatorioP2\bin\Debug\Obligatorio P2.exe
 C:\GitORT\ObligatorioP2\bin\Debug\Obligatorio P2.pdb
-C:\GitORT\ObligatorioP2\obj\Debug\Obligatorio P2.csprojResolveAssemblyReference.cache
 C:\GitORT\ObligatorioP2\obj\Debug\Obligatorio P2.exe
 C:\GitORT\ObligatorioP2\obj\Debug\Obligatorio P2.pdb
->>>>>>> 817bba981c0617abc4072395f2e4273f2362794a
